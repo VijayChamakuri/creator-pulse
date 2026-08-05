@@ -14,6 +14,22 @@ public data and a clearly-labeled synthetic analytics layer.
 
 ---
 
+## Showcase
+
+**Interactive dashboard** — dark/light toggle, live charts, KPI count-ups, scroll animations:
+
+![CreatorPulse dashboard (dark mode)](assets/dashboard-dark.png)
+
+**Weekly creator report** — plain-English, creator-facing, exports to HTML + PDF:
+
+![CreatorPulse weekly report](assets/report.png)
+
+> Green = **real public data**; amber = **synthetic modelled estimates**. The
+> boundary is visible in every view. The images above are generated from the
+> sample fixture; run the pipeline on your machine for live MKBHD data.
+
+---
+
 ## Run it (one command)
 
 ```bash

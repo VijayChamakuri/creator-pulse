@@ -138,6 +138,9 @@ def render_report(report, qa, analysis, cfg, themes=None) -> dict:
  .body section:nth-of-type(8){{animation-delay:.54s}}
  .body section:nth-of-type(9){{animation-delay:.61s}}
  @media (prefers-reduced-motion: reduce){{.reveal{{animation:none;opacity:1;transform:none}}.hero{{animation:none}}}}
+ /* PDF/print: CSS animations don't run, so force the reveal state visible */
+ @media print{{.reveal{{opacity:1 !important;transform:none !important;animation:none !important}}
+   .hero{{animation:none !important}} body{{background:#fff}} .sheet{{box-shadow:none;margin:0}}}}
 </style></head><body>
 <div class="sheet">
  <div class="hero">
