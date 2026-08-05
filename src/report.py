@@ -102,9 +102,14 @@ def _llm_narrative(analysis: dict, cfg) -> dict:
             "description": "Emit the structured weekly creator report.",
             "input_schema": REPORT_SCHEMA}
     user = (
-        "Here is the analysis for this week's creator report as JSON. Public view "
-        "counts are real; everything flagged is_synthetic is a modelled estimate. "
-        "Write the report for the account lead. Ground every claim in these numbers.\n\n"
+        "Here is the analysis for this week's creator report as JSON. The exact "
+        "provenance of every field is in `data_provenance` and `_note` — follow it "
+        "precisely. In weekly_metrics ONLY real_public_views and videos_published are "
+        "real; impressions, ctr_pct, avg_view_duration_sec, avg_view_pct, "
+        "unique_viewers, subscribers_gained and subscribers_total are modelled "
+        "estimates. Retention, traffic, demographics, geography and A/B tests are "
+        "synthetic. Write the report for the account lead, grounding every claim in "
+        "these numbers and labelling modelled figures as modelled.\n\n"
         f"```json\n{json.dumps(analysis, indent=2, default=str)}\n```"
     )
     resp = _call_claude(

@@ -17,3 +17,9 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+
+# macOS / OS junk
+.DS_Store
+**/.DS_Store
+__MACOSX/
+Thumbs.db

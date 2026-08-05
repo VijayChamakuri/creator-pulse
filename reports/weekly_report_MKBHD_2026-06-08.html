@@ -1,0 +1,111 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CreatorPulse — Weekly Report · MKBHD</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+ :root{--brand1:#7c3aed;--brand2:#ec4899;--bg:#f4f4f7;--sheet:#fff;--ink:#1f2937;
+   --muted:#6b7280;--line:#eef0f4;--lede:#faf5ff;--ledeb:#efe4ff;--th:#fafafc;--hover:#fcfaff}
+ @media (prefers-color-scheme: dark){
+  :root{--bg:#0b0b0f;--sheet:#15151c;--ink:#e7e7ea;--muted:#9aa0aa;--line:#26262f;
+    --lede:#1b1430;--ledeb:#2a2050;--th:#1b1b22;--hover:#1c1c24}
+ }
+ *{box-sizing:border-box}
+ body{font:16px/1.65 'Inter',-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+   color:var(--ink);margin:0;background:var(--bg);transition:background .4s,color .4s}
+ .sheet{max-width:840px;margin:28px auto;background:var(--sheet);border-radius:16px;
+   box-shadow:0 8px 30px rgba(0,0,0,.10);overflow:hidden}
+ .hero{background:linear-gradient(120deg,var(--brand1),var(--brand2));
+   background-size:180% 180%;animation:drift 14s ease infinite;color:#fff;padding:26px 34px}
+ @keyframes drift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+ .hero .brand{font-weight:800;letter-spacing:.02em;font-size:15px;opacity:.95}
+ .hero h1{margin:6px 0 2px;font-size:27px;font-weight:800}
+ .hero .meta{opacity:.9;font-size:13px}
+ .body{padding:8px 34px 30px}
+ section{}
+ h2{font-size:18px;font-weight:700;margin:26px 0 8px;display:flex;align-items:center;gap:10px}
+ h2::before{content:"";width:9px;height:9px;border-radius:3px;
+   background:linear-gradient(120deg,var(--brand1),var(--brand2))}
+ .muted{color:var(--muted);font-size:14px}
+ .tags{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 6px}
+ .tag{border-radius:999px;padding:3px 11px;font-size:11px;font-weight:700;letter-spacing:.02em}
+ .tag.real{background:#dcfce7;color:#166534;border:1px solid #86efac}
+ .tag.syn{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+ .tag.sample{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
+ .headline{font-size:19px;font-weight:700;margin:14px 0 4px}
+ .lede{background:var(--lede);border:1px solid var(--ledeb);border-left:4px solid var(--brand1);
+   border-radius:10px;padding:14px 18px;margin:10px 0}
+ ul{margin:6px 0;padding-left:20px} li{margin:5px 0}
+ table{border-collapse:collapse;width:100%;font-size:14px;margin:10px 0}
+ th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}
+ th{background:var(--th);font-weight:600}
+ tr:hover td{background:var(--hover)}
+ .qa{border:1px solid var(--line);border-left:4px solid #dc2626;border-radius:10px;
+   padding:12px 16px;background:var(--th);margin:10px 0}
+ .disclose{font-size:13px;color:var(--muted);background:var(--th);border:1px dashed var(--line);
+   border-radius:10px;padding:10px 14px;margin:14px 0}
+ .foot{color:var(--muted);font-size:12px;margin-top:30px;border-top:1px solid var(--line);padding-top:12px}
+ /* staggered entrance */
+ .reveal{opacity:0;transform:translateY(22px);
+   animation:rise .7s cubic-bezier(.16,1,.3,1) forwards}
+ @keyframes rise{to{opacity:1;transform:none}}
+ .body section:nth-of-type(1){animation-delay:.05s}
+ .body section:nth-of-type(2){animation-delay:.12s}
+ .body section:nth-of-type(3){animation-delay:.19s}
+ .body section:nth-of-type(4){animation-delay:.26s}
+ .body section:nth-of-type(5){animation-delay:.33s}
+ .body section:nth-of-type(6){animation-delay:.40s}
+ .body section:nth-of-type(7){animation-delay:.47s}
+ .body section:nth-of-type(8){animation-delay:.54s}
+ .body section:nth-of-type(9){animation-delay:.61s}
+ @media (prefers-reduced-motion: reduce){.reveal{animation:none;opacity:1;transform:none}.hero{animation:none}}
+ /* PDF/print: CSS animations don't run, so force the reveal state visible */
+ @media print{.reveal{opacity:1 !important;transform:none !important;animation:none !important}
+   .hero{animation:none !important} body{background:#fff} .sheet{box-shadow:none;margin:0}}
+</style></head><body>
+<div class="sheet">
+ <div class="hero">
+   <div class="brand"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="vertical-align:-5px;margin-right:8px"><rect x="1" y="1" width="22" height="22" rx="6" fill="url(#g)"/><path d="M4 12h3l2-5 3 10 2-6 1.5 2H20" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><defs><linearGradient id="g" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs></svg>CreatorPulse</div>
+   <h1>Weekly Creator Report — MKBHD</h1>
+   <div class="meta">Week of 2026-06-08 · generated 2026-08-05 · engine: claude:claude-sonnet-4-5-20250929</div>
+ </div>
+ <div class="body">
+   <section class="reveal">
+     <div class="tags"><span class="tag real">REAL public data</span><span class="tag syn">SYNTHETIC · modelled estimate</span></div>
+     <div class="disclose">Public view / like / comment counts are <b>real</b>.
+     Impressions, CTR, retention, traffic, demographics and A/B tests are
+     <b>synthetic modelled estimates</b> — this report never uses the creator's
+     private analytics.</div>
+     <p class="headline">0 A/B test winners this week; 8 of 10 tests reduced CTR</p>
+     <div class="lede">The WWDC video earned 4.1 million views, down 28% from last week&#x27;s 5.7 million. Modelled impressions dropped 22% and estimated CTR fell to 6.07%. The testing pattern is clear: all 8 definitive tests in this window were losers—variants like &quot;product hero&quot; thumbnails and &quot;curiosity gap&quot; titles consistently underperformed the control, signaling the current creative approach is working better than the alternatives tested.</div>
+   </section>
+   <section class="reveal"><h2>What we tested <span class="tag syn">SYNTHETIC · modelled estimate</span></h2><ul><li>Product hero thumbnail on WWDC video: CTR dropped 8.0% (loser)</li><li>Plain descriptive title on WWDC video: CTR dropped 8.7% (loser)</li><li>Product hero thumbnail on Pixel 10 video: lifted CTR 4.2% but effect too small to call</li><li>Chapter restructure on Pixel 10 video: CTR fell 12.9% (loser)</li><li>Short intro cut on Mistakes video: CTR down 6.6% (loser)</li><li>Curiosity gap title on Mistakes video: CTR dropped 14.7% (loser)</li><li>Product hero thumbnail on Ultra Luxury video: CTR down 14.0% (loser)</li><li>Clean minimal thumbnail on Ultra Luxury video: effect too small to call</li><li>Bold claim title on Macbook Neo video: CTR down 14.3% (loser)</li><li>Clean minimal thumbnail on Macbook Neo video: CTR fell 12.6% (loser)</li></ul></section>
+   <section class="reveal"><h2>What worked <span class="tag syn">SYNTHETIC · modelled estimate</span></h2><ul><li>The Macbook Neo video from March reached 5.7M views with 154K likes—the highest in this 5-week window</li><li>Modelled average view duration rose 4.1% week-over-week to 432 seconds despite lower overall watch percentage</li><li>Estimated subscriber growth remains strong at +25K this week, part of a rising trend over the period</li><li>Strong retention through the first 10% of the latest video—modelled curve shows 70% still watching at the 10% mark</li></ul></section>
+   <section class="reveal"><h2>What to do next</h2><ul><li>Stop testing product hero thumbnails and curiosity-gap titles—these variants have now lost in 6 separate tests; the default approach is outperforming them</li><li>Investigate the week-over-week decline in modelled CTR (down from 6.54% to 6.07%) and average view percentage (down from 53.7% to 43.7%) to understand if this is topic-driven or format-driven</li><li>Consider testing new creative directions since minimalist and bold-claim variants underperformed; the data suggests the control style resonates better with the audience</li><li>Review the modelled retention drop between 10–15% (3.2 percentage points)—this may indicate a pacing issue in the early video structure worth tightening</li></ul></section>
+   <section class="reveal"><h2>Flagged trends</h2><ul><li>Modelled CTR has been falling moderately across the 5-week window (slope: -0.53 per week)</li><li>Modelled average view duration is also trending down moderately (-29 seconds per week)</li><li>Estimated impressions show a strong rising trend (+7.2M per week), but CTR decline means not all impressions convert to views efficiently</li></ul></section>
+   <section class="reveal"><h2>Anomalies</h2><ul></ul></section>
+   <section class="reveal"><h2>Top videos this window <span class="tag real">REAL public data</span></h2>
+   <table><thead><tr><th>Title</th><th>Views</th><th>Published</th></tr></thead>
+   <tbody><tr><td>Macbook Neo Review: Better than you Think!</td><td>5,703,271</td><td>2026-03-10</td></tr><tr><td>Pixel 10/Pro Review: Good News and Bad News!</td><td>5,179,618</td><td>2025-08-29</td></tr><tr><td>WWDC 2026 Impressions: Yeah, That&#x27;s About Right</td><td>4,127,250</td><td>2026-06-09</td></tr><tr><td>The Problem with this “Ultra Luxury” Smartphone</td><td>3,230,530</td><td>2026-01-09</td></tr><tr><td>Every Mistake I Made in 2025</td><td>1,308,996</td><td>2025-12-23</td></tr></tbody></table></section>
+   
+        <section class="reveal"><h2>Title themes vs performance <span class="tag real">REAL public data</span></h2>
+        <p class="muted">Lightweight TF-IDF k-means over REAL public titles/views. Set VOYAGE_API_KEY to use semantic embeddings instead.</p>
+        <table><thead><tr><th>Theme terms</th><th>Videos</th><th>Avg views</th>
+        <th>Example</th></tr></thead><tbody><tr><td>news, review, neo, macbook</td><td>2</td><td>5,441,444</td><td>Macbook Neo Review: Better than you Think!</td></tr><tr><td>yeah, 2026, about, that&#x27;s</td><td>1</td><td>4,127,250</td><td>WWDC 2026 Impressions: Yeah, That&#x27;s About Right</td></tr><tr><td>ultra, smartphone, problem, luxury</td><td>1</td><td>3,230,530</td><td>The Problem with this “Ultra Luxury” Smartphone</td></tr><tr><td>2025, every, made, mistake</td><td>1</td><td>1,308,996</td><td>Every Mistake I Made in 2025</td></tr></tbody></table></section>
+   <section class="reveal"><h2>Automated QA of the numbers</h2>
+   <div class="qa"><b style="color:#dc2626">Verdict: FAIL</b>
+    — 45 claims checked. The draft report contains several rounding errors that misrepresent the source data:
+1. The week-over-week views decline is stated as 28% but source shows -27.6%
+2. Average view duration trend is stated as -29 seconds/week but source shows -29.2
+3. Impressions trend is stated as +7.2M/week but source shows 7,209,885.7 (closer to +7.21M)
+4. Retention at 10% mark is stated as 70% but source shows 70.2%
+
+These precision errors, while seemingly minor, fail the strict fact-checking standard. All numeric claims should either match the source exactly or be explicitly qualified as approximate. The A/B test claims, view counts, and trend characterizations otherwise correctly reflect the source data and properly distinguish between real public data (views) and synthetic modelled estimates (CTR, impressions, retention, etc.).
+    <ul><li><b>The WWDC video earned 4.1 million views, down 28% from last week&#x27;s 5.7 million</b>: The source shows delta_pct of -27.6%, not 28%. The draft rounds to 28% which is incorrect.</li><li><b>Modelled average view duration rose 4.1% week-over-week to 432 seconds</b>: Correct per source (wow_deltas.avg_view_duration_sec.delta_pct = 4.1)</li><li><b>Strong retention through the first 10% of the latest video—modelled curve shows 70% still watching at the 10% mark</b>: Source shows retained_pct at position_pct 10 is 70.2%, not 70%. Minor rounding but should be precise or say &#x27;approximately 70%&#x27;.</li><li><b>Review the modelled retention drop between 10–15% (3.2 percentage points)</b>: Source shows biggest_drop from 10 to 15 with drop_points of 3.2, which matches. This is correct.</li><li><b>Modelled CTR has been falling moderately across the 5-week window (slope: -0.53 per week)</b>: Correct per source (trends.ctr_pct.slope_per_week = -0.53)</li><li><b>Modelled average view duration is also trending down moderately (-29 seconds per week)</b>: Source shows slope_per_week = -29.2, not -29. Should be -29.2 seconds per week.</li><li><b>Estimated impressions show a strong rising trend (+7.2M per week)</b>: Source shows slope_per_week = 7209885.7, which rounds to approximately 7.21M, not 7.2M. The draft rounds down slightly.</li></ul></div></section>
+
+   <div class="foot">CreatorPulse · automated weekly creator pipeline. Synthetic layer
+   calibrated to publicly-plausible ranges (see DECISIONS.md). Public data source:
+   yt-dlp. · Built by Vijay — MKBHD is my
+   favorite YouTuber, so he's the default channel. 💜</div>
+ </div>
+</div>
+</body></html>

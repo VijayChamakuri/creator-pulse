@@ -1,0 +1,114 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CreatorPulse — Weekly Report · MKBHD</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+ :root{--brand1:#7c3aed;--brand2:#ec4899;--bg:#f4f4f7;--sheet:#fff;--ink:#1f2937;
+   --muted:#6b7280;--line:#eef0f4;--lede:#faf5ff;--ledeb:#efe4ff;--th:#fafafc;--hover:#fcfaff}
+ @media (prefers-color-scheme: dark){
+  :root{--bg:#0b0b0f;--sheet:#15151c;--ink:#e7e7ea;--muted:#9aa0aa;--line:#26262f;
+    --lede:#1b1430;--ledeb:#2a2050;--th:#1b1b22;--hover:#1c1c24}
+ }
+ *{box-sizing:border-box}
+ body{font:16px/1.65 'Inter',-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+   color:var(--ink);margin:0;background:var(--bg);transition:background .4s,color .4s}
+ .sheet{max-width:840px;margin:28px auto;background:var(--sheet);border-radius:16px;
+   box-shadow:0 8px 30px rgba(0,0,0,.10);overflow:hidden}
+ .hero{background:linear-gradient(120deg,var(--brand1),var(--brand2));
+   background-size:180% 180%;animation:drift 14s ease infinite;color:#fff;padding:26px 34px}
+ @keyframes drift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+ .hero .brand{font-weight:800;letter-spacing:.02em;font-size:15px;opacity:.95}
+ .hero h1{margin:6px 0 2px;font-size:27px;font-weight:800}
+ .hero .meta{opacity:.9;font-size:13px}
+ .body{padding:8px 34px 30px}
+ section{}
+ h2{font-size:18px;font-weight:700;margin:26px 0 8px;display:flex;align-items:center;gap:10px}
+ h2::before{content:"";width:9px;height:9px;border-radius:3px;
+   background:linear-gradient(120deg,var(--brand1),var(--brand2))}
+ .muted{color:var(--muted);font-size:14px}
+ .tags{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 6px}
+ .tag{border-radius:999px;padding:3px 11px;font-size:11px;font-weight:700;letter-spacing:.02em}
+ .tag.real{background:#dcfce7;color:#166534;border:1px solid #86efac}
+ .tag.syn{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+ .tag.sample{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
+ .headline{font-size:19px;font-weight:700;margin:14px 0 4px}
+ .lede{background:var(--lede);border:1px solid var(--ledeb);border-left:4px solid var(--brand1);
+   border-radius:10px;padding:14px 18px;margin:10px 0}
+ ul{margin:6px 0;padding-left:20px} li{margin:5px 0}
+ table{border-collapse:collapse;width:100%;font-size:14px;margin:10px 0}
+ th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}
+ th{background:var(--th);font-weight:600}
+ tr:hover td{background:var(--hover)}
+ .qa{border:1px solid var(--line);border-left:4px solid #dc2626;border-radius:10px;
+   padding:12px 16px;background:var(--th);margin:10px 0}
+ .disclose{font-size:13px;color:var(--muted);background:var(--th);border:1px dashed var(--line);
+   border-radius:10px;padding:10px 14px;margin:14px 0}
+ .foot{color:var(--muted);font-size:12px;margin-top:30px;border-top:1px solid var(--line);padding-top:12px}
+ /* staggered entrance */
+ .reveal{opacity:0;transform:translateY(22px);
+   animation:rise .7s cubic-bezier(.16,1,.3,1) forwards}
+ @keyframes rise{to{opacity:1;transform:none}}
+ .body section:nth-of-type(1){animation-delay:.05s}
+ .body section:nth-of-type(2){animation-delay:.12s}
+ .body section:nth-of-type(3){animation-delay:.19s}
+ .body section:nth-of-type(4){animation-delay:.26s}
+ .body section:nth-of-type(5){animation-delay:.33s}
+ .body section:nth-of-type(6){animation-delay:.40s}
+ .body section:nth-of-type(7){animation-delay:.47s}
+ .body section:nth-of-type(8){animation-delay:.54s}
+ .body section:nth-of-type(9){animation-delay:.61s}
+ @media (prefers-reduced-motion: reduce){.reveal{animation:none;opacity:1;transform:none}.hero{animation:none}}
+ /* PDF/print: CSS animations don't run, so force the reveal state visible */
+ @media print{.reveal{opacity:1 !important;transform:none !important;animation:none !important}
+   .hero{animation:none !important} body{background:#fff} .sheet{box-shadow:none;margin:0}}
+</style></head><body>
+<div class="sheet">
+ <div class="hero">
+   <div class="brand"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="vertical-align:-5px;margin-right:8px"><rect x="1" y="1" width="22" height="22" rx="6" fill="url(#g)"/><path d="M4 12h3l2-5 3 10 2-6 1.5 2H20" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><defs><linearGradient id="g" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs></svg>CreatorPulse</div>
+   <h1>Weekly Creator Report — MKBHD</h1>
+   <div class="meta">Week of 2026-07-06 · generated 2026-08-05 · engine: claude:claude-sonnet-4-5-20250929</div>
+ </div>
+ <div class="body">
+   <section class="reveal">
+     <div class="tags"><span class="tag real">REAL public data</span><span class="tag syn">SYNTHETIC · modelled estimate</span></div>
+     <div class="disclose">Public view / like / comment counts are <b>real</b>.
+     Impressions, CTR, retention, traffic, demographics and A/B tests are
+     <b>synthetic modelled estimates</b> — this report never uses the creator's
+     private analytics.</div>
+     <p class="headline">Week ending Jul 6: 2.3M views (down 13%), modelled CTR fell 24%, but 4 A/B test wins point the way forward</p>
+     <div class="lede">The channel published one video this week and earned 2.3 million views, down 13% week-over-week. Modelled impressions rose 15% to 46.6 million, but modelled CTR dropped sharply from 6.6% to 5.0% (down 24%). Despite the CTR dip, modelled average view percentage hit 56.1%, the highest in the 8-week window. Four A/B tests across the period delivered clear wins—chapter restructures and product-hero thumbnails are consistently outperforming controls—while six tests were clear losers.</div>
+   </section>
+   <section class="reveal"><h2>What we tested <span class="tag syn">SYNTHETIC · modelled estimate</span></h2><ul><li>AB-2025-09-15-01 (title, bold claim): Control won—variant had no meaningful effect (not significant)</li><li>AB-2025-09-15-02 (thumbnail, clean minimal): Control won—variant CTR was 7.4% lower (loser)</li><li>AB-2025-11-10-03 (thumbnail, face + reaction): Control won—variant CTR was 12.6% lower (loser)</li><li>AB-2025-11-10-04 (packaging, chapter restructure): Variant won—CTR lifted 10.9% (winner)</li><li>AB-2025-11-24-05 (title, bold claim): No meaningful difference (not significant)</li><li>AB-2025-11-24-06 (thumbnail, product hero): Control won—variant CTR was 9.0% lower (loser)</li><li>AB-2026-01-12-07 (thumbnail, face + reaction): Variant won—CTR lifted 6.1% (winner)</li><li>AB-2026-01-12-08 (packaging, short intro cut): Control won—variant CTR was 13.6% lower (loser)</li><li>AB-2026-03-02-09 (title, curiosity gap): No meaningful difference (not significant)</li><li>AB-2026-03-02-10 (packaging, cold-open hook): Control won—variant CTR was 9.6% lower (loser)</li><li>AB-2026-06-08-11 (packaging, chapter restructure): Variant won—CTR lifted 21.0% (winner)</li><li>AB-2026-06-08-12 (title, curiosity gap): Statistically significant but effect too small to call (3.5% drop)</li><li>AB-2026-06-15-13 (thumbnail, product hero): Variant won—CTR lifted 19.5% (winner)</li><li>AB-2026-06-15-14 (thumbnail, product hero): Statistically significant but effect too small to call (4.7% drop)</li><li>AB-2026-07-06-15 (thumbnail, bold text overlay): Statistically significant but effect too small to call (3.6% lift)</li><li>AB-2026-07-06-16 (thumbnail, bold text overlay): Control won—variant CTR was 14.6% lower (loser)</li></ul></section>
+   <section class="reveal"><h2>What worked <span class="tag syn">SYNTHETIC · modelled estimate</span></h2><ul><li>Product-hero thumbnails: Two clear wins (tests AB-2026-06-15-13 and AB-2026-06-08-11 delivered 19.5% and 21.0% CTR lifts respectively)</li><li>Chapter restructure: Both chapter-restructure tests won decisively (10.9% and 21.0% lifts)</li><li>Face + reaction thumbnail: One win (6.1% lift on AB-2026-01-12-07) after an earlier loss</li><li>Modelled view percentage at 56.1% is the highest in the 8-week window, suggesting strong audience retention on the latest video</li></ul></section>
+   <section class="reveal"><h2>What to do next</h2><ul><li>Double down on product-hero thumbnails and chapter restructures—these are the two most consistent winning patterns across the 16 tests</li><li>Investigate the sharp modelled CTR drop (6.6% to 5.0%)—it&#x27;s responsible for the view decline despite higher impressions</li><li>Stop testing clean minimal thumbnails, cold-open hooks, and short intro cuts—all three delivered clear losses</li><li>Re-test face + reaction thumbnails with product context—the pattern won once but lost once, suggesting setup matters</li></ul></section>
+   <section class="reveal"><h2>Flagged trends</h2><ul><li>Real public views falling strongly (down ~1.2M per week on average across the window)</li><li>Modelled impressions falling strongly (down ~18M per week on average)</li><li>Modelled subscribers gained falling strongly (down ~6,900 per week on average); this week&#x27;s modelled gain of 12,273 is down 36% week-over-week</li></ul></section>
+   <section class="reveal"><h2>Anomalies</h2><ul><li>Week of Sep 15, 2025: Real public views spiked to 15.6M (2.5× standard deviations above the window mean)</li><li>Week of Sep 15, 2025: Modelled impressions spiked to 205M (2.2× standard deviations above the window mean)</li><li>Week of Sep 15, 2025: Modelled subscribers gained spiked to 79,818 (2.3× standard deviations above the window mean)</li></ul></section>
+   <section class="reveal"><h2>Top videos this window <span class="tag real">REAL public data</span></h2>
+   <table><thead><tr><th>Title</th><th>Views</th><th>Published</th></tr></thead>
+   <tbody><tr><td>Wait... Smart Glasses are Suddenly Good?</td><td>8,273,262</td><td>2025-09-19</td></tr><tr><td>AirPods Pro 3 Review: I Understand It Now!</td><td>7,328,248</td><td>2025-09-15</td></tr><tr><td>OnePlus 15 Review: This is Not Normal!</td><td>6,164,601</td><td>2025-11-13</td></tr><tr><td>WWDC 2026 Impressions: Yeah, That&#x27;s About Right</td><td>4,127,250</td><td>2026-06-09</td></tr><tr><td>The New Siri is... Google (Explained)</td><td>4,010,321</td><td>2026-01-13</td></tr></tbody></table></section>
+   
+        <section class="reveal"><h2>Title themes vs performance <span class="tag real">REAL public data</span></h2>
+        <p class="muted">Lightweight TF-IDF k-means over REAL public titles/views. Set VOYAGE_API_KEY to use semantic embeddings instead.</p>
+        <table><thead><tr><th>Theme terms</th><th>Videos</th><th>Avg views</th>
+        <th>Example</th></tr></thead><tbody><tr><td>smart, wait, are, good</td><td>1</td><td>8,273,262</td><td>Wait... Smart Glasses are Suddenly Good?</td></tr><tr><td>review, oneplus, normal, understand</td><td>5</td><td>4,839,588</td><td>AirPods Pro 3 Review: I Understand It Now!</td></tr><tr><td>siri, isn&#x27;t, bad, google</td><td>2</td><td>3,022,993</td><td>The New Siri is... Google (Explained)</td></tr><tr><td>nothing, say, phone, they</td><td>1</td><td>2,340,753</td><td>Nothing Phone 4b: They Can&#x27;t Say It!</td></tr></tbody></table></section>
+   <section class="reveal"><h2>Automated QA of the numbers</h2>
+   <div class="qa"><b style="color:#dc2626">Verdict: FAIL</b>
+    — 45 claims checked. Major issues found:
+1. **Critical misattribution**: The report claims test AB-2026-06-08-11 (21.0% lift) was a product-hero thumbnail test, but the source shows it was a &#x27;packaging/chapter restructure&#x27; test. This fundamentally misrepresents which creative elements worked.
+
+2. **Synthetic data presented as real**: All 16 A/B tests are synthetic (per data_provenance), but the report presents them as actual experiments with specific outcomes. While the summary mentions &#x27;modelled CTR&#x27;, the detailed test list does not consistently flag these as modelled estimates.
+
+3. **Rounding inaccuracies**: Multiple percentages are rounded incorrectly (e.g., -12.7% → -13%, -23.9% → -24%, 14.8% → 15%, z-score 2.26 → 2.3). While individually small, these compound to create an inaccurate picture.
+
+4. **Incorrect winner count for product-hero thumbnails**: The report claims two product-hero thumbnail wins, but only AB-2026-06-15-13 was a product-hero thumbnail test that won. The other cited test (AB-2026-06-08-11) was a packaging test.
+
+The report must clearly distinguish between real public data (views) and synthetic modelled estimates (CTR, impressions, A/B tests, retention) throughout, and must accurately represent which test variants correspond to which elements and outcomes.
+    <ul><li><b>2.3M views (down 13%)</b>: Source shows 2,340,753 views with a -12.7% change, not -13%. The report rounds to -13% which is misleading.</li><li><b>modelled CTR fell 24%</b>: Source shows CTR delta_pct of -23.9%, not -24%. While close, this is inaccurate rounding.</li><li><b>4 A/B test wins point the way forward</b>: Source ab_tests.summary shows &#x27;winners&#x27;: 4, which is correct, but the headline calls synthetic A/B test data &#x27;real&#x27; by not labeling it as modelled.</li><li><b>modelled impressions rose 15% to 46.6 million</b>: Source shows impressions delta_pct of 14.8%, not 15%. Also impressions is 46,645,023 which rounds to 46.6M correctly.</li><li><b>modelled CTR dropped sharply from 6.6% to 5.0% (down 24%)</b>: The delta is -23.9%, not -24%. Repeated inaccuracy.</li><li><b>AB-2026-06-08-11 delivered 19.5% lift</b>: Source shows test AB-2026-06-08-11 had lift_pct of 21.0%, not 19.5%. The 19.5% lift was from test AB-2026-06-15-13.</li><li><b>Product-hero thumbnails: Two clear wins (tests AB-2026-06-15-13 and AB-2026-06-08-11 delivered 19.5% and 21.0% CTR lifts respectively)</b>: Test AB-2026-06-08-11 is a &#x27;packaging&#x27; test with variant &#x27;chapter restructure&#x27;, NOT a thumbnail test. Test AB-2026-06-15-13 is the product-hero thumbnail test with 19.5% lift. Only one product-hero thumbnail test won (AB-2026-06-15-13).</li><li><b>Modelled subscribers gained spiked to 79,818 (2.3× standard deviations above the window mean)</b>: Source shows z_score of 2.26, not 2.3. While close, this is inaccurate.</li><li><b>All A/B test results presented as findings without clear synthetic labeling in the what_was_tested section</b>: The data_provenance clearly states ab_tests are &#x27;entirely synthetic&#x27;, but the report presents 16 detailed test results as if they were real experiments. This violates the requirement to describe synthetic data as modelled, never as measured.</li></ul></div></section>
+
+   <div class="foot">CreatorPulse · automated weekly creator pipeline. Synthetic layer
+   calibrated to publicly-plausible ranges (see DECISIONS.md). Public data source:
+   yt-dlp. · Built by Vijay — MKBHD is my
+   favorite YouTuber, so he's the default channel. 💜</div>
+ </div>
+</div>
+</body></html>

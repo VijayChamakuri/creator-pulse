@@ -120,13 +120,25 @@ def analyze(tables: dict, cfg) -> dict:
         "source": r["source"],
     } for _, r in recent.iterrows()]
 
+    # weekly_metrics is a MIXED table: real_public_views + videos_published are
+    # real (from the public pull); every other column is a modelled estimate.
+    # Drop the row-level is_synthetic flag here so it never contradicts the
+    # field-level provenance below (a blanket is_synthetic=1 on a row that also
+    # holds real views is exactly the ambiguity the QA pass flags).
+    wm_out = wm.drop(columns=[c for c in ["is_synthetic"] if c in wm.columns])
+
+    real_weekly = ["real_public_views", "videos_published"]
+    modelled_weekly = ["impressions", "ctr_pct", "avg_view_duration_sec",
+                       "avg_view_pct", "unique_viewers", "subscribers_gained",
+                       "subscribers_total"]
+
     return {
         "channel": meta["channel"],
         "public_source": meta["public_source"],
         "is_real_public_data": bool(meta["is_real_public_data"]),
         "window_weeks": int(len(wm)),
         "latest_week": wm.iloc[-1]["week_start"] if len(wm) else None,
-        "weekly_metrics": wm.to_dict(orient="records"),
+        "weekly_metrics": wm_out.to_dict(orient="records"),
         "wow_deltas": wow,
         "trends": trends,
         "anomalies": anomalies,
@@ -135,8 +147,28 @@ def analyze(tables: dict, cfg) -> dict:
         "top_public_videos": top_videos,
         "traffic_latest": traffic_latest,
         "geo_latest": geo_latest,
-        "_note": "wow/trends/anomalies on 'real_public_views' use REAL data; all "
-                 "other metrics, retention, and A/B tests are SYNTHETIC (owner-only).",
+        # Field-level provenance so real vs modelled is never ambiguous.
+        "data_provenance": {
+            "real_public_data": {
+                "source": meta["public_source"],
+                "weekly_metrics_fields": real_weekly,
+                "also_real": ["top_public_videos (title, views, likes, comments, publish_date)"],
+                "note": "Pulled from public YouTube; safe to state as fact.",
+            },
+            "synthetic_modelled": {
+                "weekly_metrics_fields": modelled_weekly,
+                "also_synthetic": ["retention", "traffic_latest", "geo_latest",
+                                   "ab_tests", "anomalies flagged on modelled metrics"],
+                "note": "Owner-only metrics not accessible publicly; calibrated "
+                        "estimates. Describe as modelled, never as measured.",
+            },
+        },
+        "_note": "In weekly_metrics ONLY real_public_views and videos_published are "
+                 "REAL (from the public pull). impressions, ctr_pct, "
+                 "avg_view_duration_sec, avg_view_pct, unique_viewers, "
+                 "subscribers_gained and subscribers_total are SYNTHETIC modelled "
+                 "estimates. Retention, traffic, demographics, geography and A/B "
+                 "tests are entirely synthetic. See data_provenance.",
     }
 
 
