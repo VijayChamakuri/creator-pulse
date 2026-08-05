@@ -1,0 +1,50 @@
+name: Weekly creator report
+
+# Runs the CreatorPulse pipeline every Monday 08:00 UTC and commits the fresh
+# report + dashboard back to the repo. Also runnable on demand from the Actions tab.
+on:
+  schedule:
+    - cron: "0 8 * * 1"       # Mondays 08:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write             # needed to commit the generated report back
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate weekly report
+        env:
+          # Optional. Add ANTHROPIC_API_KEY as a repo secret to enable the
+          # Claude narrative + QA pass. Without it, the pipeline uses the
+          # deterministic template automatically (no failure).
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Optional. Add YOUTUBE_API_KEY as a secret to use the YouTube Data
+          # API. Otherwise yt-dlp (in requirements) pulls the public data.
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python run.py
+
+      - name: Commit updated report + dashboard
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/ dashboard/
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: weekly creator report $(date -u +%Y-%m-%d)"
+            git push
+          fi

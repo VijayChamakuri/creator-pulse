@@ -1,0 +1,14 @@
+# Core (required)
+pandas>=2.0
+numpy>=1.24
+PyYAML>=6.0
+
+# Real public data pull (recommended; the pipeline falls back to a sample
+# fixture if this isn't installed or the network is unavailable)
+yt-dlp>=2024.1.1
+
+# Optional: PDF export of the report. HTML is always produced without it.
+# weasyprint>=60
+
+# The LLM report + QA calls use only the Python stdlib (urllib) — no SDK needed.
+# Set ANTHROPIC_API_KEY in a local .env (see README). Run with --no-llm to skip.

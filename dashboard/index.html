@@ -1,0 +1,176 @@
+<!doctype html><html lang="en" data-theme="auto"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CreatorPulse Dashboard — MKBHD</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+ :root{--brand1:#7c3aed;--brand2:#ec4899;
+   --bg:#f4f4f7;--card:#ffffff;--ink:#111827;--muted:#6b7280;--line:#eef0f4;
+   --grid:rgba(0,0,0,.06);--shadow:0 6px 20px rgba(17,24,39,.06)}
+ html[data-theme="dark"]{--bg:#0b0b0f;--card:#15151c;--ink:#e7e7ea;--muted:#9aa0aa;
+   --line:#26262f;--grid:rgba(255,255,255,.08);--shadow:0 8px 26px rgba(0,0,0,.5)}
+ *{box-sizing:border-box}
+ body{font:15px/1.5 'Inter',-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;
+   background:var(--bg);color:var(--ink);transition:background .45s ease,color .45s ease}
+ header{position:sticky;top:0;z-index:20;
+   background:linear-gradient(120deg,var(--brand1),var(--brand2));
+   background-size:200% 200%;animation:drift 16s ease infinite;color:#fff;
+   padding:18px 26px;display:flex;align-items:center;justify-content:space-between;
+   box-shadow:0 4px 20px rgba(124,58,237,.25)}
+ @keyframes drift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+ header .brand{font-weight:800;font-size:14px;letter-spacing:.04em;opacity:.95}
+ header h1{margin:4px 0 2px;font-size:22px;font-weight:800}
+ header .sub{color:rgba(255,255,255,.85);font-size:13px}
+ .toggle{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+   color:#fff;border-radius:999px;padding:8px 14px;font:600 13px Inter,sans-serif;
+   cursor:pointer;display:flex;gap:7px;align-items:center;transition:transform .2s,background .2s}
+ .toggle:hover{background:rgba(255,255,255,.3);transform:translateY(-1px)}
+ .wrap{max-width:1120px;margin:22px auto;padding:0 18px}
+ .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+ .kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;
+   box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s}
+ .kpi:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(124,58,237,.18)}
+ .kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+   background:linear-gradient(var(--brand1),var(--brand2))}
+ .kpi .v{font-size:24px;font-weight:800;font-variant-numeric:tabular-nums}
+ .kpi .l{color:var(--muted);font-size:12px;font-weight:600}
+ .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+ .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;
+   box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s}
+ .panel:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.12)}
+ .panel h3{margin:0 0 12px;font-size:15px;font-weight:700;display:flex;align-items:center}
+ .tag{border-radius:999px;padding:2px 9px;font-size:10px;font-weight:800;margin-left:8px}
+ .syn{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+ .real{background:#dcfce7;color:#166534;border:1px solid #86efac}
+ table{border-collapse:collapse;width:100%;font-size:13px}
+ th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left}
+ th{color:var(--muted);font-weight:600}
+ .note{color:var(--muted);font-size:12px;margin-top:16px}
+ /* scroll reveal */
+ .reveal{opacity:0;transform:translateY(28px);
+   transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+ .reveal.in{opacity:1;transform:none}
+ @media (prefers-reduced-motion: reduce){
+   .reveal{opacity:1;transform:none;transition:none} header{animation:none}}
+ @media(max-width:820px){.grid{grid-template-columns:1fr}}
+</style></head><body>
+<header>
+ <div>
+   <div class="brand">◆ CreatorPulse</div>
+   <h1>Weekly Creator Dashboard</h1>
+   <div class="sub" id="sub"></div>
+ </div>
+ <button class="toggle" id="themeToggle" aria-label="Toggle theme"><span id="ticon">🌙</span><span id="tlabel">Dark</span></button>
+</header>
+<div class="wrap">
+ <div class="kpis reveal" id="kpis"></div>
+ <div class="grid">
+  <div class="panel reveal"><h3>Real public views by week <span class="tag real">REAL</span></h3><canvas id="views"></canvas></div>
+  <div class="panel reveal"><h3>Modelled CTR by week <span class="tag syn">SYNTHETIC</span></h3><canvas id="ctr"></canvas></div>
+  <div class="panel reveal"><h3>Retention curve, latest week <span class="tag syn">SYNTHETIC</span></h3><canvas id="ret"></canvas></div>
+  <div class="panel reveal"><h3>A/B tests <span class="tag syn">SYNTHETIC</span></h3><div id="ab"></div></div>
+  <div class="panel reveal"><h3>Traffic sources, latest week <span class="tag syn">SYNTHETIC</span></h3><canvas id="traffic"></canvas></div>
+  <div class="panel reveal"><h3>Audience geography <span class="tag syn">SYNTHETIC</span></h3><canvas id="geo"></canvas></div>
+ </div>
+ <p class="note reveal">Public view/like/comment counts are real. All amber-tagged
+ panels are synthetic modelled estimates — not the creator's private analytics.
+ Built by Vijay · MKBHD is my favorite YouTuber. 💜</p>
+</div>
+<script>
+const DATA = {"analysis": {"channel": "MKBHD", "public_source": "yt-dlp", "is_real_public_data": true, "window_weeks": 5, "latest_week": "2026-06-15", "weekly_metrics": [{"week_start": "2025-08-25", "videos_published": 1, "real_public_views": 6126813, "impressions": 80520579, "ctr_pct": 7.61, "avg_view_duration_sec": 255, "avg_view_pct": 46.8, "unique_viewers": 54367503, "subscribers_gained": 31345, "subscribers_total": 19689714, "is_synthetic": 1}, {"week_start": "2025-10-27", "videos_published": 1, "real_public_views": 6759908, "impressions": 77441787, "ctr_pct": 8.73, "avg_view_duration_sec": 511, "avg_view_pct": 52.6, "unique_viewers": 53218910, "subscribers_gained": 47445, "subscribers_total": 19737159, "is_synthetic": 1}, {"week_start": "2026-02-23", "videos_published": 1, "real_public_views": 2606974, "impressions": 31165039, "ctr_pct": 8.37, "avg_view_duration_sec": 226, "avg_view_pct": 42.6, "unique_viewers": 18047473, "subscribers_gained": 18367, "subscribers_total": 19755526, "is_synthetic": 1}, {"week_start": "2026-03-02", "videos_published": 1, "real_public_views": 3895926, "impressions": 59588201, "ctr_pct": 6.54, "avg_view_duration_sec": 405, "avg_view_pct": 53.7, "unique_viewers": 38695363, "subscribers_gained": 20701, "subscribers_total": 19776227, "is_synthetic": 1}, {"week_start": "2026-06-15", "videos_published": 1, "real_public_views": 2681750, "impressions": 44186638, "ctr_pct": 6.07, "avg_view_duration_sec": 418, "avg_view_pct": 43.7, "unique_viewers": 27710900, "subscribers_gained": 16556, "subscribers_total": 19792783, "is_synthetic": 1}], "wow_deltas": {"real_public_views": {"current": 2681750, "previous": 3895926, "delta_pct": -31.2}, "impressions": {"current": 44186638, "previous": 59588201, "delta_pct": -25.8}, "ctr_pct": {"current": 6.07, "previous": 6.54, "delta_pct": -7.2}, "avg_view_duration_sec": {"current": 418, "previous": 405, "delta_pct": 3.2}, "avg_view_pct": {"current": 43.7, "previous": 53.7, "delta_pct": -18.6}, "subscribers_gained": {"current": 16556, "previous": 20701, "delta_pct": -20.0}}, "trends": {"real_public_views": {"direction": "falling", "slope_per_week": -975410.8, "strength": "strong"}, "impressions": {"direction": "falling", "slope_per_week": -9052146.8, "strength": "strong"}, "ctr_pct": {"direction": "falling", "slope_per_week": -0.53, "strength": "moderate"}, "avg_view_duration_sec": {"direction": "rising", "slope_per_week": 22.0, "strength": "moderate"}, "avg_view_pct": {"direction": "falling", "slope_per_week": -0.51, "strength": "mild"}, "subscribers_gained": {"direction": "falling", "slope_per_week": -5632.2, "strength": "strong"}}, "anomalies": [], "retention": {"week_start": "2026-06-15", "curve": [{"position_pct": 0, "retained_pct": 100.0}, {"position_pct": 5, "retained_pct": 85.1}, {"position_pct": 10, "retained_pct": 70.2}, {"position_pct": 15, "retained_pct": 67.0}, {"position_pct": 20, "retained_pct": 64.2}, {"position_pct": 25, "retained_pct": 61.6}, {"position_pct": 30, "retained_pct": 59.0}, {"position_pct": 35, "retained_pct": 56.6}, {"position_pct": 40, "retained_pct": 54.1}, {"position_pct": 45, "retained_pct": 51.8}, {"position_pct": 50, "retained_pct": 49.4}, {"position_pct": 55, "retained_pct": 47.1}, {"position_pct": 60, "retained_pct": 44.8}, {"position_pct": 65, "retained_pct": 42.5}, {"position_pct": 70, "retained_pct": 40.3}, {"position_pct": 75, "retained_pct": 38.0}, {"position_pct": 80, "retained_pct": 35.8}, {"position_pct": 85, "retained_pct": 33.6}, {"position_pct": 90, "retained_pct": 31.4}, {"position_pct": 95, "retained_pct": 29.2}, {"position_pct": 100, "retained_pct": 27.1}], "intro_drop_pct": 29.8, "avg_retention_pct": 51.8, "biggest_drop": {"from_pct": 10, "to_pct": 15, "drop_points": 3.2}, "is_synthetic": true}, "ab_tests": {"tests": [{"test_id": "AB-2025-08-25-01", "week_start": "2025-08-25", "video_title": "Switching from iPhone to Android", "element": "thumbnail", "variant": "product hero", "ctr_control_pct": 8.25, "ctr_variant_pct": 8.6, "lift_pct": 4.2, "p_value": 0.0028, "significant": true, "meets_min_effect": false, "outcome": "inconclusive (small effect)", "is_synthetic": true}, {"test_id": "AB-2025-08-25-02", "week_start": "2025-08-25", "video_title": "Switching from iPhone to Android", "element": "packaging", "variant": "chapter restructure", "ctr_control_pct": 4.82, "ctr_variant_pct": 4.2, "lift_pct": -12.9, "p_value": 0.0, "significant": true, "meets_min_effect": true, "outcome": "loser", "is_synthetic": true}, {"test_id": "AB-2025-10-27-03", "week_start": "2025-10-27", "video_title": "The Problem with this Humanoid Robot", "element": "packaging", "variant": "short intro cut", "ctr_control_pct": 5.27, "ctr_variant_pct": 4.92, "lift_pct": -6.6, "p_value": 0.0, "significant": true, "meets_min_effect": true, "outcome": "loser", "is_synthetic": true}, {"test_id": "AB-2025-10-27-04", "week_start": "2025-10-27", "video_title": "The Problem with this Humanoid Robot", "element": "title", "variant": "curiosity gap", "ctr_control_pct": 9.52, "ctr_variant_pct": 8.12, "lift_pct": -14.7, "p_value": 0.0, "significant": true, "meets_min_effect": true, "outcome": "loser", "is_synthetic": true}, {"test_id": "AB-2026-02-23-05", "week_start": "2026-02-23", "video_title": "Samsung Galaxy Buds 4 Pro Review: Better than AirPods!", "element": "thumbnail", "variant": "product hero", "ctr_control_pct": 8.14, "ctr_variant_pct": 7.0, "lift_pct": -14.0, "p_value": 0.0, "significant": true, "meets_min_effect": true, "outcome": "loser", "is_synthetic": true}, {"test_id": "AB-2026-02-23-06", "week_start": "2026-02-23", "video_title": "Samsung Galaxy Buds 4 Pro Review: Better than AirPods!", "element": "thumbnail", "variant": "clean minimal", "ctr_control_pct": 5.39, "ctr_variant_pct": 5.13, "lift_pct": -4.8, "p_value": 0.0, "significant": true, "meets_min_effect": false, "outcome": "inconclusive (small effect)", "is_synthetic": true}, {"test_id": "AB-2026-03-02-07", "week_start": "2026-03-02", "video_title": "Samsung Galaxy S26 Ultra Review: There's a Catch", "element": "title", "variant": "bold claim", "ctr_control_pct": 4.81, "ctr_variant_pct": 4.12, "lift_pct": -14.3, "p_value": 0.0, "significant": true, "meets_min_effect": true, "outcome": "loser", "is_synthetic": true}, {"test_id": "AB-2026-03-02-08", "week_start": "2026-03-02", "video_title": "Samsung Galaxy S26 Ultra Review: There's a Catch", "element": "thumbnail", "variant": "clean minimal", "ctr_control_pct": 7.56, "ctr_variant_pct": 6.61, "lift_pct": -12.6, "p_value": 0.0, "significant": true, "meets_min_effect": true, "outcome": "loser", "is_synthetic": true}, {"test_id": "AB-2026-06-15-09", "week_start": "2026-06-15", "video_title": "The Most Interesting Displays In The World!", "element": "thumbnail", "variant": "product hero", "ctr_control_pct": 4.64, "ctr_variant_pct": 4.27, "lift_pct": -8.0, "p_value": 0.0, "significant": true, "meets_min_effect": true, "outcome": "loser", "is_synthetic": true}, {"test_id": "AB-2026-06-15-10", "week_start": "2026-06-15", "video_title": "The Most Interesting Displays In The World!", "element": "title", "variant": "plain descriptive", "ctr_control_pct": 7.2, "ctr_variant_pct": 6.57, "lift_pct": -8.7, "p_value": 0.0, "significant": true, "meets_min_effect": true, "outcome": "loser", "is_synthetic": true}], "summary": {"total": 10, "winners": 0, "losers": 8, "small_effect": 2, "inconclusive": 0, "alpha": 0.05, "min_lift_pct": 5.0, "is_synthetic": true}}, "top_public_videos": [{"title": "The Problem with this Humanoid Robot", "publish_date": "2025-10-30", "views": 6759908, "likes": 205532, "comments": 20000, "source": "yt-dlp"}, {"title": "Switching from iPhone to Android", "publish_date": "2025-08-25", "views": 6126813, "likes": 172214, "comments": 15000, "source": "yt-dlp"}, {"title": "Samsung Galaxy S26 Ultra Review: There's a Catch", "publish_date": "2026-03-06", "views": 3895926, "likes": 110639, "comments": 6300, "source": "yt-dlp"}, {"title": "The Most Interesting Displays In The World!", "publish_date": "2026-06-16", "views": 2681750, "likes": 72213, "comments": 2000, "source": "yt-dlp"}, {"title": "Samsung Galaxy Buds 4 Pro Review: Better than AirPods!", "publish_date": "2026-02-28", "views": 2606974, "likes": 82035, "comments": 3600, "source": "yt-dlp"}], "traffic_latest": {"Browse features": 30.9, "Suggested videos": 29.8, "YouTube search": 20.4, "External": 12.0, "Channel pages": 6.9, "Notifications": 3.1, "Other": 1.7}, "geo_latest": {"United States": 34.0, "India": 10.9, "United Kingdom": 8.2, "Canada": 7.9, "Germany": 3.1, "Australia": 3.4, "Other": 33.3}, "_note": "wow/trends/anomalies on 'real_public_views' use REAL data; all other metrics, retention, and A/B tests are SYNTHETIC (owner-only)."}, "themes": {"themes": [{"theme_terms": ["robot", "problem", "humanoid", "world"], "n_videos": 1, "avg_views": 6759908, "example_title": "The Problem with this Humanoid Robot"}, {"theme_terms": ["iphone", "android", "switching", "from"], "n_videos": 1, "avg_views": 6126813, "example_title": "Switching from iPhone to Android"}, {"theme_terms": ["galaxy", "samsung", "review", "there's"], "n_videos": 2, "avg_views": 3251450, "example_title": "Samsung Galaxy S26 Ultra Review: There's a Catch"}, {"theme_terms": ["world", "interesting", "displays", "most"], "n_videos": 1, "avg_views": 2681750, "example_title": "The Most Interesting Displays In The World!"}], "note": "Lightweight TF-IDF k-means over REAL public titles/views. Set VOYAGE_API_KEY to use semantic embeddings instead."}};
+const a = DATA.analysis, wm = a.weekly_metrics || [];
+const $ = id => document.getElementById(id);
+$('sub').textContent = a.channel + " · window " + a.window_weeks + " weeks · public source: " + a.public_source;
+const fmt = n => (n==null?'n/a':Number(n).toLocaleString());
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---- theme ---- */
+const html = document.documentElement;
+function systemDark(){return matchMedia('(prefers-color-scheme: dark)').matches;}
+function applyTheme(t){
+  const dark = t==='dark' || (t==='auto' && systemDark());
+  html.setAttribute('data-theme', dark?'dark':'light');
+  $('ticon').textContent = dark?'☀️':'🌙';
+  $('tlabel').textContent = dark?'Light':'Dark';
+  buildCharts(dark);
+}
+let theme = localStorage.getItem('cp-theme') || 'auto';
+$('themeToggle').onclick = ()=>{
+  const darkNow = html.getAttribute('data-theme')==='dark';
+  theme = darkNow?'light':'dark';
+  localStorage.setItem('cp-theme', theme);
+  applyTheme(theme);
+};
+
+/* ---- KPI cards with count-up ---- */
+const wow = a.wow_deltas || {};
+const kpi = [
+  ['Latest week views', wow.real_public_views?.current, wow.real_public_views?.delta_pct, 'REAL', 0],
+  ['Modelled CTR %', wow.ctr_pct?.current, wow.ctr_pct?.delta_pct, 'SYN', 1],
+  ['Modelled avg view (s)', wow.avg_view_duration_sec?.current, wow.avg_view_duration_sec?.delta_pct, 'SYN', 0],
+  ['Subs gained (modelled)', wow.subscribers_gained?.current, wow.subscribers_gained?.delta_pct, 'SYN', 0],
+];
+$('kpis').innerHTML = kpi.map((k,i)=>{
+  const d = (k[2]==null)?'':(k[2]>=0?'▲ +':'▼ ')+k[2]+'%';
+  const tag = k[3]==='REAL'?'<span class="tag real">REAL</span>':'<span class="tag syn">SYN</span>';
+  return `<div class=kpi><div class=l>${k[0]} ${tag}</div>
+    <div class=v id="kpi${i}">${k[1]==null?'n/a':(k[4]?Number(k[1]).toFixed(1):'0')}</div>
+    <div class=l style="color:${k[2]>=0?'#16a34a':'#dc2626'}">${d}</div></div>`;
+}).join('');
+function countUp(el, to, dec){
+  if(to==null){el.textContent='n/a';return;}
+  if(reduce){el.textContent = dec?Number(to).toFixed(1):fmt(Math.round(to));return;}
+  const dur=1000, t0=performance.now();
+  (function step(t){
+    const p=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-p,3), val=to*e;
+    el.textContent = dec?val.toFixed(1):fmt(Math.round(val));
+    if(p<1) requestAnimationFrame(step);
+  })(t0);
+}
+kpi.forEach((k,i)=>countUp($('kpi'+i), k[1], k[4]));
+
+/* ---- charts (rebuilt on theme change so colors match) ---- */
+let charts=[];
+function buildCharts(dark){
+  charts.forEach(c=>c.destroy()); charts=[];
+  const ink = dark?'#c9cdd6':'#374151', grid = dark?'rgba(255,255,255,.08)':'rgba(0,0,0,.06)';
+  Chart.defaults.color = ink; Chart.defaults.font.family="Inter, sans-serif";
+  const anim = reduce?false:{duration:900,easing:'easeOutQuart'};
+  const axes = {x:{grid:{color:grid},ticks:{color:ink}},y:{grid:{color:grid},ticks:{color:ink}}};
+  const weeks = wm.map(w=>w.week_start);
+  charts.push(new Chart(views,{type:'bar',data:{labels:weeks,datasets:[{data:wm.map(w=>w.real_public_views),
+    backgroundColor:'#22c55e',borderRadius:6}]},options:{animation:anim,plugins:{legend:{display:false}},scales:axes}}));
+  charts.push(new Chart(ctr,{type:'line',data:{labels:weeks,datasets:[{data:wm.map(w=>w.ctr_pct),
+    borderColor:'#ec4899',backgroundColor:'rgba(236,72,153,.15)',fill:true,tension:.35,pointRadius:2}]},
+    options:{animation:anim,plugins:{legend:{display:false}},scales:axes}}));
+  const rc=(a.retention?.curve)||[];
+  charts.push(new Chart(ret,{type:'line',data:{labels:rc.map(p=>p.position_pct+'%'),datasets:[{data:rc.map(p=>p.retained_pct),
+    borderColor:'#7c3aed',backgroundColor:'rgba(124,58,237,.18)',fill:true,tension:.25,pointRadius:0}]},
+    options:{animation:anim,plugins:{legend:{display:false}},scales:{x:axes.x,y:{...axes.y,min:0,max:100}}}}));
+  const pieOpt={animation:anim,plugins:{legend:{position:'right',labels:{color:ink,font:{size:11}}}}};
+  if(a.traffic_latest) charts.push(new Chart(traffic,{type:'doughnut',
+    data:{labels:Object.keys(a.traffic_latest),datasets:[{data:Object.values(a.traffic_latest),
+    backgroundColor:['#7c3aed','#ec4899','#f59e0b','#22c55e','#3b82f6','#14b8a6','#94a3b8'],
+    borderWidth:2,borderColor:dark?'#15151c':'#fff'}]},options:pieOpt}));
+  if(a.geo_latest) charts.push(new Chart(geo,{type:'doughnut',
+    data:{labels:Object.keys(a.geo_latest),datasets:[{data:Object.values(a.geo_latest),
+    backgroundColor:['#ec4899','#7c3aed','#0ea5e9','#f97316','#84cc16','#a855f7','#94a3b8'],
+    borderWidth:2,borderColor:dark?'#15151c':'#fff'}]},options:pieOpt}));
+}
+const tests=(a.ab_tests?.tests)||[];
+$('ab').innerHTML = tests.length? (
+ '<table><thead><tr><th>Video</th><th>Element</th><th>Variant</th><th>Lift</th><th>Outcome</th></tr></thead><tbody>'
+ + tests.map(t=>`<tr><td>${(t.video_title||'').slice(0,24)}</td><td>${t.element}</td>
+   <td>${t.variant}</td><td style="color:${t.lift_pct>=0?'#16a34a':'#dc2626'}">${t.lift_pct>0?'+':''}${t.lift_pct}%</td>
+   <td><b>${t.outcome}</b></td></tr>`).join('') + '</tbody></table>') : 'No tests.';
+
+/* ---- scroll reveal ---- */
+const io = new IntersectionObserver((es)=>es.forEach((e,i)=>{
+  if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('in'), i*60); io.unobserve(e.target);}
+}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* follow OS theme changes when in auto */
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if(theme==='auto')applyTheme('auto');});
+applyTheme(theme);
+</script></body></html>

@@ -1,0 +1,102 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CreatorPulse — Weekly Report · MKBHD</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+ :root{--brand1:#7c3aed;--brand2:#ec4899;--bg:#f4f4f7;--sheet:#fff;--ink:#1f2937;
+   --muted:#6b7280;--line:#eef0f4;--lede:#faf5ff;--ledeb:#efe4ff;--th:#fafafc;--hover:#fcfaff}
+ @media (prefers-color-scheme: dark){
+  :root{--bg:#0b0b0f;--sheet:#15151c;--ink:#e7e7ea;--muted:#9aa0aa;--line:#26262f;
+    --lede:#1b1430;--ledeb:#2a2050;--th:#1b1b22;--hover:#1c1c24}
+ }
+ *{box-sizing:border-box}
+ body{font:16px/1.65 'Inter',-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+   color:var(--ink);margin:0;background:var(--bg);transition:background .4s,color .4s}
+ .sheet{max-width:840px;margin:28px auto;background:var(--sheet);border-radius:16px;
+   box-shadow:0 8px 30px rgba(0,0,0,.10);overflow:hidden}
+ .hero{background:linear-gradient(120deg,var(--brand1),var(--brand2));
+   background-size:180% 180%;animation:drift 14s ease infinite;color:#fff;padding:26px 34px}
+ @keyframes drift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+ .hero .brand{font-weight:800;letter-spacing:.02em;font-size:15px;opacity:.95}
+ .hero h1{margin:6px 0 2px;font-size:27px;font-weight:800}
+ .hero .meta{opacity:.9;font-size:13px}
+ .body{padding:8px 34px 30px}
+ section{}
+ h2{font-size:18px;font-weight:700;margin:26px 0 8px;display:flex;align-items:center;gap:10px}
+ h2::before{content:"";width:9px;height:9px;border-radius:3px;
+   background:linear-gradient(120deg,var(--brand1),var(--brand2))}
+ .muted{color:var(--muted);font-size:14px}
+ .tags{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 6px}
+ .tag{border-radius:999px;padding:3px 11px;font-size:11px;font-weight:700;letter-spacing:.02em}
+ .tag.real{background:#dcfce7;color:#166534;border:1px solid #86efac}
+ .tag.syn{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+ .tag.sample{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
+ .headline{font-size:19px;font-weight:700;margin:14px 0 4px}
+ .lede{background:var(--lede);border:1px solid var(--ledeb);border-left:4px solid var(--brand1);
+   border-radius:10px;padding:14px 18px;margin:10px 0}
+ ul{margin:6px 0;padding-left:20px} li{margin:5px 0}
+ table{border-collapse:collapse;width:100%;font-size:14px;margin:10px 0}
+ th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}
+ th{background:var(--th);font-weight:600}
+ tr:hover td{background:var(--hover)}
+ .qa{border:1px solid var(--line);border-left:4px solid #dc2626;border-radius:10px;
+   padding:12px 16px;background:var(--th);margin:10px 0}
+ .disclose{font-size:13px;color:var(--muted);background:var(--th);border:1px dashed var(--line);
+   border-radius:10px;padding:10px 14px;margin:14px 0}
+ .foot{color:var(--muted);font-size:12px;margin-top:30px;border-top:1px solid var(--line);padding-top:12px}
+ /* staggered entrance */
+ .reveal{opacity:0;transform:translateY(22px);
+   animation:rise .7s cubic-bezier(.16,1,.3,1) forwards}
+ @keyframes rise{to{opacity:1;transform:none}}
+ .body section:nth-of-type(1){animation-delay:.05s}
+ .body section:nth-of-type(2){animation-delay:.12s}
+ .body section:nth-of-type(3){animation-delay:.19s}
+ .body section:nth-of-type(4){animation-delay:.26s}
+ .body section:nth-of-type(5){animation-delay:.33s}
+ .body section:nth-of-type(6){animation-delay:.40s}
+ .body section:nth-of-type(7){animation-delay:.47s}
+ .body section:nth-of-type(8){animation-delay:.54s}
+ .body section:nth-of-type(9){animation-delay:.61s}
+ @media (prefers-reduced-motion: reduce){.reveal{animation:none;opacity:1;transform:none}.hero{animation:none}}
+</style></head><body>
+<div class="sheet">
+ <div class="hero">
+   <div class="brand"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="vertical-align:-5px;margin-right:8px"><rect x="1" y="1" width="22" height="22" rx="6" fill="url(#g)"/><path d="M4 12h3l2-5 3 10 2-6 1.5 2H20" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><defs><linearGradient id="g" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs></svg>CreatorPulse</div>
+   <h1>Weekly Creator Report — MKBHD</h1>
+   <div class="meta">Week of 2026-06-15 · generated 2026-08-05 · engine: claude:claude-sonnet-4-5-20250929</div>
+ </div>
+ <div class="body">
+   <section class="reveal">
+     <div class="tags"><span class="tag real">REAL public data</span><span class="tag syn">SYNTHETIC · modelled estimate</span></div>
+     <div class="disclose">Public view / like / comment counts are <b>real</b>.
+     Impressions, CTR, retention, traffic, demographics and A/B tests are
+     <b>synthetic modelled estimates</b> — this report never uses the creator's
+     private analytics.</div>
+     <p class="headline">0 wins from 10 A/B tests; views down 31%, modelled impressions -26% week-over-week</p>
+     <div class="lede">This week&#x27;s video hit 2.7 million views, down 31% from last week&#x27;s 3.9 million. Modelled impressions dropped 26% to 44.2 million, and estimated click-through fell 7% to 6.07%. Over the past five weeks views, impressions, CTR, and subscriber growth have all trended strongly downward, while average view duration has climbed moderately.</div>
+   </section>
+   <section class="reveal"><h2>What we tested <span class="tag syn">SYNTHETIC · modelled estimate</span></h2><ul><li>Thumbnail: &#x27;product hero&#x27; vs. control (week of June 15) – loser, -8.0% modelled CTR</li><li>Title: &#x27;plain descriptive&#x27; vs. control (week of June 15) – loser, -8.7% modelled CTR</li><li>Thumbnail: &#x27;product hero&#x27; (Feb 23) – loser, -14.0%</li><li>Thumbnail: &#x27;clean minimal&#x27; (Feb 23) – too small to call, -4.8%</li><li>Title: &#x27;bold claim&#x27; (Mar 2) – loser, -14.3%</li><li>Thumbnail: &#x27;clean minimal&#x27; (Mar 2) – loser, -12.6%</li><li>Packaging: &#x27;chapter restructure&#x27; (Aug 25) – loser, -12.9%</li><li>Thumbnail: &#x27;product hero&#x27; (Aug 25) – too small to call, +4.2%</li><li>Packaging: &#x27;short intro cut&#x27; (Oct 27) – loser, -6.6%</li><li>Title: &#x27;curiosity gap&#x27; (Oct 27) – loser, -14.7%</li></ul></section>
+   <section class="reveal"><h2>What worked <span class="tag syn">SYNTHETIC · modelled estimate</span></h2><ul><li>Retention: modelled average view percentage of 43.7%, with viewers staying an estimated 418 seconds (up 3% from last week)</li><li>Intro hook held an estimated 85% of viewers through the first 5% of the video</li><li>Top traffic sources remain browse features (31%) and suggested videos (30%)</li><li>US audience at 34%, followed by India (11%) and UK (8%)</li></ul></section>
+   <section class="reveal"><h2>What to do next</h2><ul><li>Stop testing &#x27;product hero,&#x27; &#x27;clean minimal,&#x27; and &#x27;curiosity gap&#x27; approaches – all underperformed control in recent tests</li><li>Investigate the five-week slide in impressions (down 9 million per week on average) and CTR (down 0.53 points per week)</li><li>Audit recent creative choices: 8 of 10 tests have been losers, suggesting the control formula is currently outperforming experiments</li><li>Look at the biggest modelled retention drop (10–15% into the video, -3.2 points) to tighten mid-intro pacing</li></ul></section>
+   <section class="reveal"><h2>Flagged trends</h2><ul><li>Views falling strongly: down 975,000 per week on average over five weeks</li><li>Modelled impressions falling strongly: down 9.0 million per week</li><li>Modelled CTR falling moderately: down 0.53 percentage points per week</li><li>Subscriber growth falling strongly: down 5,600 per week on average</li></ul></section>
+   <section class="reveal"><h2>Anomalies</h2><ul></ul></section>
+   <section class="reveal"><h2>Top videos this window <span class="tag real">REAL public data</span></h2>
+   <table><thead><tr><th>Title</th><th>Views</th><th>Published</th></tr></thead>
+   <tbody><tr><td>The Problem with this Humanoid Robot</td><td>6,759,908</td><td>2025-10-30</td></tr><tr><td>Switching from iPhone to Android</td><td>6,126,813</td><td>2025-08-25</td></tr><tr><td>Samsung Galaxy S26 Ultra Review: There&#x27;s a Catch</td><td>3,895,926</td><td>2026-03-06</td></tr><tr><td>The Most Interesting Displays In The World!</td><td>2,681,750</td><td>2026-06-16</td></tr><tr><td>Samsung Galaxy Buds 4 Pro Review: Better than AirPods!</td><td>2,606,974</td><td>2026-02-28</td></tr></tbody></table></section>
+   
+        <section class="reveal"><h2>Title themes vs performance <span class="tag real">REAL public data</span></h2>
+        <p class="muted">Lightweight TF-IDF k-means over REAL public titles/views. Set VOYAGE_API_KEY to use semantic embeddings instead.</p>
+        <table><thead><tr><th>Theme terms</th><th>Videos</th><th>Avg views</th>
+        <th>Example</th></tr></thead><tbody><tr><td>robot, problem, humanoid, world</td><td>1</td><td>6,759,908</td><td>The Problem with this Humanoid Robot</td></tr><tr><td>iphone, android, switching, from</td><td>1</td><td>6,126,813</td><td>Switching from iPhone to Android</td></tr><tr><td>galaxy, samsung, review, there&#x27;s</td><td>2</td><td>3,251,450</td><td>Samsung Galaxy S26 Ultra Review: There&#x27;s a Catch</td></tr><tr><td>world, interesting, displays, most</td><td>1</td><td>2,681,750</td><td>The Most Interesting Displays In The World!</td></tr></tbody></table></section>
+   <section class="reveal"><h2>Automated QA of the numbers</h2>
+   <div class="qa"><b style="color:#dc2626">Verdict: FAIL</b>
+    — 45 claims checked. The draft contains multiple rounding errors and fails to properly disclose that most metrics presented are synthetic/modelled data rather than real public data. Key issues: (1) 2.68M views rounded incorrectly to 2.7M, (2) -25.8% impressions delta reported as -26%, (3) -9.05M/week slope reported as -9.0M/week. Most critically, the draft presents synthetic data (impressions, CTR, A/B test results, retention curves) as if they were real metrics without adequate disclosure. The source clearly flags is_synthetic=true for nearly all metrics except real_public_views. While the draft uses terms like &#x27;modelled&#x27; and &#x27;estimated&#x27; in some places, the headline &#x27;0 wins from 10 A/B tests; views down 31%, modelled impressions -26%&#x27; mixes real data (views) with synthetic data (A/B tests, impressions) without making the distinction clear to readers. The note field in source data explicitly states these are &#x27;SYNTHETIC (owner-only)&#x27; but this critical caveat is not surfaced prominently in the draft.
+    <ul><li><b>This week&#x27;s video hit 2.7 million views</b>: Draft says 2.7 million but source shows 2,681,750 which rounds to 2.68 million, not 2.7 million</li><li><b>modelled impressions dropped 26% to 44.2 million</b>: Source shows delta_pct of -25.8%, not -26%. Also, impressions are 44,186,638 which rounds to 44.19 million, not 44.2 million</li><li><b>Modelled impressions dropped 26%</b>: Source shows -25.8%, not -26%</li><li><b>Modelled impressions falling strongly: down 9.0 million per week</b>: Source shows slope_per_week of -9,052,146.8 which rounds to -9.05 million, not -9.0 million</li><li><b>all other metrics, retention, and A/B tests are SYNTHETIC (owner-only)</b>: Draft presents synthetic data (impressions, CTR, A/B tests, retention) without clearly disclosing to the reader that these are modelled/synthetic metrics, not real public data. The headline and summary fail to indicate this is synthetic data.</li></ul></div></section>
+
+   <div class="foot">CreatorPulse · automated weekly creator pipeline. Synthetic layer
+   calibrated to publicly-plausible ranges (see DECISIONS.md). Public data source:
+   yt-dlp. · Built by Vijay — MKBHD is my
+   favorite YouTuber, so he's the default channel. 💜</div>
+ </div>
+</div>
+</body></html>

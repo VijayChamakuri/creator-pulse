@@ -1,0 +1,19 @@
+# Secrets — never commit
+.env
+.env.*
+*.env
+
+# Generated data + artifacts (re-created by `python run.py`)
+data/creatorpulse.db
+data/*.db
+data/*.db-journal
+data/raw/*
+data/synthetic/*
+!data/raw/.gitkeep
+!data/synthetic/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
