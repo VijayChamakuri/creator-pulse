@@ -1,12 +1,12 @@
-# CreatorPulse — Automated Weekly YouTube Creator Report
+# CreatorPulse - Automated Weekly YouTube Creator Report
 
-**Turns a YouTube channel's real public data into a plain-English weekly report an account lead can hand straight to a creator — with an LLM-written narrative and a second LLM pass that fact-checks every number.**
+**Turns a YouTube channel's real public data into a plain-English weekly report an account lead can hand straight to a creator - with an LLM-written narrative and a second LLM pass that fact-checks every number.**
 
 ### ▶ [**Live demo →**](https://VijayChamakuri.github.io/creator-pulse/) &nbsp;·&nbsp; [Weekly report](https://VijayChamakuri.github.io/creator-pulse/report.html) &nbsp;·&nbsp; [Interactive dashboard](https://VijayChamakuri.github.io/creator-pulse/dashboard.html)
 
 ![narrative](https://img.shields.io/badge/narrative-claude--sonnet--4.5-7c3aed) ![data](https://img.shields.io/badge/public%20data-yt--dlp%20(live)-22c55e) ![qa](https://img.shields.io/badge/automated%20QA-PASS-16a34a) ![python](https://img.shields.io/badge/python-3.9%2B-3776ab)
 
-> Built by Vijay. MKBHD is my favorite YouTuber, so his channel is the default — the report and dashboard below are the **real, live-generated** output for `@mkbhd`.
+> Built by Vijay. MKBHD is my favorite YouTuber, so his channel is the default - the report and dashboard below are the **real, live-generated** output for `@mkbhd`.
 
 ---
 
@@ -14,7 +14,7 @@
 
 The screenshots below are the actual generated output (channel: MKBHD, week of 2026-07-27). Click through to the [live demo](https://VijayChamakuri.github.io/creator-pulse/) to open them interactively.
 
-### The weekly report — creator-facing, plain English
+### The weekly report - creator-facing, plain English
 
 [![Weekly creator report](assets/report.png)](https://VijayChamakuri.github.io/creator-pulse/report.html)
 
@@ -29,9 +29,9 @@ The screenshots below are the actual generated output (channel: MKBHD, week of 2
 > - Curiosity-gap title delivered an 18.4% modelled CTR lift on the Dope Tech video.
 > - Bold-text thumbnail lifted 13.9% on the Xiaomi car video.
 
-Every number in that narrative was **checked by a second Claude pass** against the source data before the report was published — that's the `QA verdict: PASS`.
+Every number in that narrative was **checked by a second Claude pass** against the source data before the report was published - that's the `QA verdict: PASS`.
 
-### The interactive dashboard — dark mode, live charts
+### The interactive dashboard - dark mode, live charts
 
 [![CreatorPulse dashboard (dark mode)](assets/dashboard-dark.png)](https://VijayChamakuri.github.io/creator-pulse/dashboard.html)
 
@@ -41,9 +41,9 @@ Dark/light toggle, KPI cards with week-over-week deltas, real views by week, mod
 
 ## The honest part (the differentiator)
 
-A creator's **public** data — views, likes, comments, titles, dates — is pulled live via yt-dlp and marked <kbd>REAL</kbd> (green). Their **owner-only** analytics — impressions, CTR, retention, traffic sources, demographics, A/B tests — live inside YouTube Studio and **cannot be accessed publicly**, so CreatorPulse **generates** them, calibrated to publicly-plausible ranges, and marks them <kbd>SYNTHETIC</kbd> (amber) everywhere: in the report, the dashboard, and the code.
+A creator's **public** data - views, likes, comments, titles, dates - is pulled live via yt-dlp and marked <kbd>REAL</kbd> (green). Their **owner-only** analytics - impressions, CTR, retention, traffic sources, demographics, A/B tests - live inside YouTube Studio and **cannot be accessed publicly**, so CreatorPulse **generates** them, calibrated to publicly-plausible ranges, and marks them <kbd>SYNTHETIC</kbd> (amber) everywhere: in the report, the dashboard, and the code.
 
-**The tool never implies access to private analytics.** The two layers are kept in physically separate database tables and are visibly labeled in every view. Field-level provenance is carried all the way into the LLM prompt, so the AI narrative — and the AI QA that checks it — can never confuse a real number for a modelled one. Full calibration and assumptions: [`docs/DECISIONS.md`](docs/DECISIONS.md).
+**The tool never implies access to private analytics.** The two layers are kept in physically separate database tables and are visibly labeled in every view. Field-level provenance is carried all the way into the LLM prompt, so the AI narrative - and the AI QA that checks it - can never confuse a real number for a modelled one. Full calibration and assumptions: [`docs/DECISIONS.md`](docs/DECISIONS.md).
 
 ---
 
@@ -84,16 +84,17 @@ pip install -r requirements.txt
 python run.py
 ```
 
-Outputs land in `reports/` (HTML + PDF) and `dashboard/index.html` — open in any browser, no server needed.
+Outputs land in `reports/` (HTML + PDF) and `dashboard/index.html` - open in any browser, no server needed.
 
 | Command | What it does |
 |---|---|
 | `python run.py` | Full pipeline; pulls **live** public data via yt-dlp |
 | `python run.py --no-llm` | Skips the API; deterministic template narrative (nothing to configure) |
 | `python run.py --fixture` | Forces the bundled offline sample dataset (CI / demos) |
+| `python run.py --publish-pages` | Publishes this run's exact report and dashboard to `docs/` |
 | `python run.py --channel @handle` | Point it at any channel |
 
-**LLM report + QA** (optional): put your key in a git-ignored `.env` —
+**LLM report + QA** (optional): put your key in a git-ignored `.env` -
 
 ```
 ANTHROPIC_API_KEY=sk-ant-...
@@ -101,6 +102,15 @@ ANTHROPIC_API_KEY=sk-ant-...
 
 The report/QA calls use only the Python stdlib (no SDK). Without a key (or with `--no-llm`), a deterministic template produces the same report structure. **PDF export** is optional (`pip install weasyprint`); HTML is always produced.
 
+## Verification
+
+```bash
+python -m unittest discover -s tests -p "test_*.py" -v
+python run.py --fixture --no-llm
+```
+
+The test suite checks deterministic fixture generation, field-level synthetic provenance, disclosure in rendered outputs, and exact GitHub Pages publication. GitHub Actions runs the same offline checks without API keys.
+
 ---
 
-*Public view/like/comment counts are real. Impressions, CTR, retention, traffic, demographics and A/B tests are synthetic modelled estimates — this project never uses a creator's private analytics.*
+*Public view/like/comment counts are real. Impressions, CTR, retention, traffic, demographics and A/B tests are synthetic modelled estimates - this project never uses a creator's private analytics.*

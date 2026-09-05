@@ -35,13 +35,13 @@ jobs:
           # Optional. Add YOUTUBE_API_KEY as a secret to use the YouTube Data
           # API. Otherwise yt-dlp (in requirements) pulls the public data.
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-        run: python run.py
+        run: python run.py --publish-pages
 
       - name: Commit updated report + dashboard
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add reports/ dashboard/
+          git add reports/ dashboard/ docs/report.html docs/dashboard.html
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
