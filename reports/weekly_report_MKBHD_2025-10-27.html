@@ -1,0 +1,101 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CreatorPulse — Weekly Report · MKBHD</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+ :root{--brand1:#7c3aed;--brand2:#ec4899;--bg:#f4f4f7;--sheet:#fff;--ink:#1f2937;
+   --muted:#6b7280;--line:#eef0f4;--lede:#faf5ff;--ledeb:#efe4ff;--th:#fafafc;--hover:#fcfaff}
+ @media (prefers-color-scheme: dark){
+  :root{--bg:#0b0b0f;--sheet:#15151c;--ink:#e7e7ea;--muted:#9aa0aa;--line:#26262f;
+    --lede:#1b1430;--ledeb:#2a2050;--th:#1b1b22;--hover:#1c1c24}
+ }
+ *{box-sizing:border-box}
+ body{font:16px/1.65 'Inter',-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+   color:var(--ink);margin:0;background:var(--bg);transition:background .4s,color .4s}
+ .sheet{max-width:840px;margin:28px auto;background:var(--sheet);border-radius:16px;
+   box-shadow:0 8px 30px rgba(0,0,0,.10);overflow:hidden}
+ .hero{background:linear-gradient(120deg,var(--brand1),var(--brand2));
+   background-size:180% 180%;animation:drift 14s ease infinite;color:#fff;padding:26px 34px}
+ @keyframes drift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+ .hero .brand{font-weight:800;letter-spacing:.02em;font-size:15px;opacity:.95}
+ .hero h1{margin:6px 0 2px;font-size:27px;font-weight:800}
+ .hero .meta{opacity:.9;font-size:13px}
+ .body{padding:8px 34px 30px}
+ section{}
+ h2{font-size:18px;font-weight:700;margin:26px 0 8px;display:flex;align-items:center;gap:10px}
+ h2::before{content:"";width:9px;height:9px;border-radius:3px;
+   background:linear-gradient(120deg,var(--brand1),var(--brand2))}
+ .muted{color:var(--muted);font-size:14px}
+ .tags{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 6px}
+ .tag{border-radius:999px;padding:3px 11px;font-size:11px;font-weight:700;letter-spacing:.02em}
+ .tag.real{background:#dcfce7;color:#166534;border:1px solid #86efac}
+ .tag.syn{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+ .tag.sample{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
+ .headline{font-size:19px;font-weight:700;margin:14px 0 4px}
+ .lede{background:var(--lede);border:1px solid var(--ledeb);border-left:4px solid var(--brand1);
+   border-radius:10px;padding:14px 18px;margin:10px 0}
+ ul{margin:6px 0;padding-left:20px} li{margin:5px 0}
+ table{border-collapse:collapse;width:100%;font-size:14px;margin:10px 0}
+ th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}
+ th{background:var(--th);font-weight:600}
+ tr:hover td{background:var(--hover)}
+ .qa{border:1px solid var(--line);border-left:4px solid #16a34a;border-radius:10px;
+   padding:12px 16px;background:var(--th);margin:10px 0}
+ .disclose{font-size:13px;color:var(--muted);background:var(--th);border:1px dashed var(--line);
+   border-radius:10px;padding:10px 14px;margin:14px 0}
+ .foot{color:var(--muted);font-size:12px;margin-top:30px;border-top:1px solid var(--line);padding-top:12px}
+ /* staggered entrance */
+ .reveal{opacity:0;transform:translateY(22px);
+   animation:rise .7s cubic-bezier(.16,1,.3,1) forwards}
+ @keyframes rise{to{opacity:1;transform:none}}
+ .body section:nth-of-type(1){animation-delay:.05s}
+ .body section:nth-of-type(2){animation-delay:.12s}
+ .body section:nth-of-type(3){animation-delay:.19s}
+ .body section:nth-of-type(4){animation-delay:.26s}
+ .body section:nth-of-type(5){animation-delay:.33s}
+ .body section:nth-of-type(6){animation-delay:.40s}
+ .body section:nth-of-type(7){animation-delay:.47s}
+ .body section:nth-of-type(8){animation-delay:.54s}
+ .body section:nth-of-type(9){animation-delay:.61s}
+ @media (prefers-reduced-motion: reduce){.reveal{animation:none;opacity:1;transform:none}.hero{animation:none}}
+ /* PDF/print: CSS animations don't run, so force the reveal state visible */
+ @media print{.reveal{opacity:1 !important;transform:none !important;animation:none !important}
+   .hero{animation:none !important} body{background:#fff} .sheet{box-shadow:none;margin:0}}
+</style></head><body>
+<div class="sheet">
+ <div class="hero">
+   <div class="brand"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="vertical-align:-5px;margin-right:8px"><rect x="1" y="1" width="22" height="22" rx="6" fill="url(#g)"/><path d="M4 12h3l2-5 3 10 2-6 1.5 2H20" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><defs><linearGradient id="g" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs></svg>CreatorPulse</div>
+   <h1>Weekly Creator Report — MKBHD</h1>
+   <div class="meta">Week of 2025-10-27 · generated 2026-10-05 · engine: template-fallback</div>
+ </div>
+ <div class="body">
+   <section class="reveal">
+     <div class="tags"><span class="tag real">REAL public data</span><span class="tag syn">SYNTHETIC · modelled estimate</span></div>
+     <div class="disclose">Public view / like / comment counts are <b>real</b>.
+     Impressions, CTR, retention, traffic, demographics and A/B tests are
+     <b>synthetic modelled estimates</b> — this report never uses the creator's
+     private analytics.</div>
+     <p class="headline">MKBHD: public views n/a week-over-week, 0 winning test(s) this window.</p>
+     <div class="lede">This week MKBHD&#x27;s published videos drew n/a real public views, n/a versus the prior week. Modelled CTR moved n/a and modelled average view duration n/a. All impressions, CTR, retention and A/B figures are synthetic estimates, not the creator&#x27;s private analytics.</div>
+   </section>
+   <section class="reveal"><h2>What we tested <span class="tag syn">SYNTHETIC · modelled estimate</span></h2><ul><li>Title test on “The Problem with this Humanoid Robot”: variant &#x27;bold claim&#x27; vs current (modelled CTR 7.28% → 7.45%, lift +2.3%).</li><li>Packaging test on “The Problem with this Humanoid Robot”: variant &#x27;short intro cut&#x27; vs current (modelled CTR 5.39% → 5.15%, lift -4.5%).</li></ul></section>
+   <section class="reveal"><h2>What worked <span class="tag syn">SYNTHETIC · modelled estimate</span></h2><ul><li>No test cleared both significance and the minimum effect size this window; treat any leads as directional.</li></ul></section>
+   <section class="reveal"><h2>What to do next</h2><ul><li>Roll winning packaging patterns into upcoming uploads and re-test to confirm.</li><li>Tighten the section between 10% and 15% of video length, where retention falls most steeply (−4.6 points).</li><li>Rerun the inconclusive and small-effect tests with more impressions before calling them.</li></ul></section>
+   <section class="reveal"><h2>Flagged trends</h2><ul><li>No strong trends over the window.</li></ul></section>
+   <section class="reveal"><h2>Anomalies</h2><ul><li>No statistical anomalies flagged.</li></ul></section>
+   <section class="reveal"><h2>Top videos this window <span class="tag real">REAL public data</span></h2>
+   <table><thead><tr><th>Title</th><th>Views</th><th>Published</th></tr></thead>
+   <tbody><tr><td>The Problem with this Humanoid Robot</td><td>7,017,513</td><td>2025-10-30</td></tr></tbody></table></section>
+   
+   <section class="reveal"><h2>Automated QA of the numbers</h2>
+   <div class="qa"><b style="color:#16a34a">Verdict: PASS</b>
+    — 1 claims checked. Local deterministic QA (LLM QA unavailable).
+    </div></section>
+
+   <div class="foot">CreatorPulse · automated weekly creator pipeline. Synthetic layer
+   calibrated to publicly-plausible ranges (see DECISIONS.md). Public data source:
+   yt-dlp. · Built by Vijay — MKBHD is my
+   favorite YouTuber, so he's the default channel. 💜</div>
+ </div>
+</div>
+</body></html>
